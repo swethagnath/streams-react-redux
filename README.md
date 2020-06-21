@@ -66,3 +66,48 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+auth steps
+
+
+steps for setting OAuth
+
+create a new project at console.developers.google.com
+set up an OAuth confirmation  screen
+generate an OAuth client id
+install google api library intialize with the OAuth client ID
+Make sure the lib gets called any time the user clicks on the login with google button
+
+
+steps
+1. create console.developers.google.com a new project and click on create
+2. select the project
+3.go to 'credentials' and then to 'OAuth consent screen'
+4. write application name and then save
+5. go and click on credentials next to OAuth consent screen and click on create credentials and choose 'OAuth Click Id'
+6. a new page will appear and select webapplication
+and in Authorized 'Authorized javascript origin' and write the domain name 'localhost:3000'
+7. copy the client Id
+the client id is app registration id
+
+//redux dev tool extension
+
+To make things easier, there's an npm package to install:
+<!-- https://github.com/zalmoxisus/redux-devtools-extension -->
+npm install --save redux-devtools-extension
+and to use like so:
+
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+const store = createStore(reducer, composeWithDevTools(
+  applyMiddleware(...middleware),
+  // other store enhancers if any
+));
+
+
+ above and also download manually === both required
+
+
+
+
