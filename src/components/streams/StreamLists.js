@@ -1,8 +1,8 @@
 import React from 'react'
-import {fetchStreams} from '../../actions'
-import {connect} from 'react-redux'
+import { fetchStreams } from '../../actions'
+import { connect } from 'react-redux'
 
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 class StreamLists extends React.Component {
 
   componentDidMount() {
@@ -10,21 +10,21 @@ class StreamLists extends React.Component {
   }
 
   renderAdmin = (stream) => {
-    if(stream.userId === this.props.userId){
+
       return(
         <div className="right floated content">
-          <Link to={`/streams/edit/${stream.id}`} className="ui button primary">Edit</Link>
-          <Link to={`/streams/delete/${stream.id}`} className="ui button negative">
+          <Link to={ `/streams/edit/${ stream.id }` } className="ui button primary">Edit</Link>
+          <Link to={ `/streams/delete/${stream.id }` } className="ui button negative">
             Delete
           </Link>
         </div>
       )
-   }
+
   }
 
   renderCreate() {
     return(
-      <div style={{textAlign: 'right'}}>
+      <div style={ { textAlign: 'right' } }>
         <Link to="/streams/new" className="ui button primary">
           Create Stream
         </Link>
@@ -35,12 +35,12 @@ class StreamLists extends React.Component {
   renderList() {
     return this.props.streams.map(stream => {
       return(
-        <div className="item" key={stream.id}>
-          {this.renderAdmin(stream)}
+        <div className="item" key={ stream.id }>
+          { this.renderAdmin(stream) }
           <i className="large middle aligned icon camera"/>
           <div className="content">
-            <Link to={`/streams/${stream.id}`} className="header">{stream.title}</Link>
-              <div className="description">{stream.description}</div>
+            <Link to={ `/streams/${ stream.id }`} className="header">{ stream.title }</Link>
+              <div className="description">{ stream.description }</div>
           </div>
         </div>
       )
@@ -51,8 +51,8 @@ class StreamLists extends React.Component {
     return(
       <div>
         <h2>streams</h2>
-        <div className="ui celled list">{this.renderList()}</div>
-        {this.renderCreate()}
+        <div className="ui celled list">{ this.renderList() }</div>
+        { this.renderCreate() }
       </div>
     )
   }
@@ -60,10 +60,8 @@ class StreamLists extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    streams: Object.values(state.streams),
-    userId: state.userStatus.userId,
-    signedIn: state.userStatus.isSignedIn
+    streams: Object.values(state.streams)
   }
 }
 
-export default connect(mapStateToProps, {fetchStreams})(StreamLists)
+export default connect(mapStateToProps, { fetchStreams })(StreamLists)

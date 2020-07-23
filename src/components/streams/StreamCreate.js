@@ -1,6 +1,6 @@
 import React from 'react'
-import {createStreams} from '../../actions/index'
-import {connect} from 'react-redux'
+import { createStreams } from '../../actions/index'
+import { connect } from 'react-redux'
 import StreamForm from './StreamForms'
 
 class StreamCreate extends React.Component {

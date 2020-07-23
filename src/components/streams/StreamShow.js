@@ -1,6 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {fetchStream} from '../../actions'
+import { connect } from 'react-redux'
+import { fetchStream } from '../../actions'
 
 class StreamShow extends React.Component {
 
@@ -20,12 +20,12 @@ class StreamShow extends React.Component {
 
     }
 
-    const {title, description} = this.props.stream
+    const { title, description } = this.props.stream
 
     return(
       <div>
-        <h1>{title}</h1>
-        <h5>{description}</h5>
+        <h1>{ title }</h1>
+        <h5>{ description }</h5>
       </div>
     )
   }
@@ -33,7 +33,7 @@ class StreamShow extends React.Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {stream: state.streams[ownProps.match.params.id]}
+  return { stream: state.streams[ownProps.match.params.id] }
 }
 
 export default connect(mapStateToProps, {

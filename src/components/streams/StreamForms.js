@@ -1,5 +1,5 @@
 import React from 'react'
-import {Field, reduxForm} from 'redux-form'
+import { Field, reduxForm } from 'redux-form'
 
 class StreamForm extends React.Component {
 
@@ -20,20 +20,21 @@ class StreamForm extends React.Component {
     const error = (meta.error && meta.touched) && 'error'
 
     return (
-      <div className= {`field ${error}`}>
-        <label>{label}</label>
-        <input {...input} />
-        {this.renderError(meta)}
+      <div className= { `field ${ error }` }>
+        <label>{ label }</label>
+        <input { ...input } />
+        { this.renderError(meta) }
       </div>
     )
 
   }
 
   render(){
+    console.log(this.props)
     return(
-      <form className="ui form error" onSubmit={this.props.handleSubmit(this.props.onSubmit)}>
-        <Field name="title" component={this.renderInput} label="Title"/>
-        <Field name="description" component={this.renderInput} label="Description"/>
+      <form className="ui form error" onSubmit={ this.props.handleSubmit(this.props.onSubmit) }>
+        <Field name="title" component={ this.renderInput } label="Title"/>
+        <Field name="description" component={ this.renderInput } label="Description"/>
         <button type="submit">submit</button>
       </form>
     )
